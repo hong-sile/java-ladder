@@ -76,6 +76,9 @@ class SimpleLinkedListTest {
 
     @Test
     void size() {
+        final SimpleLinkedList list = new SimpleLinkedList("홍실", "다니", "제이미");
+
+        assertThat(list.size()).isEqualTo(3);
     }
 
     @Test
