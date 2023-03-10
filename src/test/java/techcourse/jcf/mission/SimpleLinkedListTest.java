@@ -39,7 +39,11 @@ class SimpleLinkedListTest {
 
     @Test
     void set() {
-        final String[] values = {"", ""};
+        final SimpleLinkedList list = new SimpleLinkedList("홍실", "다니", "제이미", "에단");
+
+        list.set(1, "로지");
+
+        assertThat(list.indexOf("로지")).isEqualTo(1);
     }
 
     @Test

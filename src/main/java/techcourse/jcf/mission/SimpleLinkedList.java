@@ -46,7 +46,15 @@ public class SimpleLinkedList implements SimpleList {
 
     @Override
     public String set(final int index, final String value) {
-        return null;
+        if (index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+        Node node = startNode;
+        for (int i = 0; i < index; i++) {
+            node = node.next;
+        }
+        node.value = value;
+        return value;
     }
 
     @Override
