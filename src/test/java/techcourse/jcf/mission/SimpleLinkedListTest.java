@@ -57,7 +57,10 @@ class SimpleLinkedListTest {
     void contains() {
         final SimpleLinkedList list = new SimpleLinkedList("홍실", "다니", "제이미", "에단");
 
-        assertThat(list.contains("홍실")).isTrue();
+        Assertions.assertAll(
+                () -> assertThat(list.contains("준팍")).isFalse(),
+                () -> assertThat(list.contains("홍실")).isTrue()
+        );
     }
 
     @Test

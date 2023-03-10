@@ -60,7 +60,7 @@ public class SimpleLinkedList implements SimpleList {
 
     @Override
     public boolean contains(final String value) {
-        return false;
+        return indexOf(value) > NOT_CONATIN_OBJECT_INDEX;
     }
 
     @Override
