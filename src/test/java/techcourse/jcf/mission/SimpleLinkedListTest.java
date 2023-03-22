@@ -1,6 +1,8 @@
 package techcourse.jcf.mission;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -83,6 +85,13 @@ class SimpleLinkedListTest {
 
     @Test
     void isEmpty() {
+        final SimpleLinkedList list = new SimpleLinkedList("홍실", "로지", "준팍");
+        final SimpleLinkedList emptyList = new SimpleLinkedList();
+
+        Assertions.assertAll(
+                () -> assertFalse(list.isEmpty()),
+                () -> assertTrue(emptyList.isEmpty())
+        );
     }
 
     @Test

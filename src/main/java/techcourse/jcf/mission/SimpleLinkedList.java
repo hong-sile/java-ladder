@@ -2,7 +2,7 @@ package techcourse.jcf.mission;
 
 public class SimpleLinkedList implements SimpleList {
 
-    public static final int NOT_CONATIN_OBJECT_INDEX = -1;
+    public static final int NOT_CONTAIN_OBJECT_INDEX = -1;
     private int size = 0;
     private Node startNode;
 
@@ -68,7 +68,7 @@ public class SimpleLinkedList implements SimpleList {
 
     @Override
     public boolean contains(final String value) {
-        return indexOf(value) > NOT_CONATIN_OBJECT_INDEX;
+        return indexOf(value) > NOT_CONTAIN_OBJECT_INDEX;
     }
 
     @Override
@@ -80,7 +80,7 @@ public class SimpleLinkedList implements SimpleList {
             }
             index += 1;
         }
-        return NOT_CONATIN_OBJECT_INDEX;
+        return NOT_CONTAIN_OBJECT_INDEX;
     }
 
     @Override
@@ -90,7 +90,7 @@ public class SimpleLinkedList implements SimpleList {
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
     @Override
