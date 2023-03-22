@@ -99,10 +99,11 @@ class SimpleLinkedListTest {
     }
 
     @Test
-    void testRemove() {
-    }
-
-    @Test
     void clear() {
+        final SimpleLinkedList list = new SimpleLinkedList("홍실", "로지", "준팍");
+
+        list.clear();
+
+        assertTrue(list.isEmpty());
     }
 }

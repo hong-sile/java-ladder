@@ -90,7 +90,7 @@ public class SimpleLinkedList implements SimpleList {
 
     @Override
     public boolean isEmpty() {
-        return size == 0;
+        return startNode == null && size == 0;
     }
 
     @Override
@@ -105,7 +105,8 @@ public class SimpleLinkedList implements SimpleList {
 
     @Override
     public void clear() {
-
+        startNode = null;
+        size = 0;
     }
 
     public Node getStartNode() {
