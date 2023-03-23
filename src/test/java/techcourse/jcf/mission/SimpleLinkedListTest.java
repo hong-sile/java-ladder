@@ -1,6 +1,7 @@
 package techcourse.jcf.mission;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -95,7 +96,7 @@ class SimpleLinkedListTest {
     }
 
     @Test
-    void remove() {
+    void removeByValue() {
         final SimpleLinkedList list = new SimpleLinkedList("홍실", "로지", "준팍");
 
         final boolean success = list.remove("홍실");
@@ -106,6 +107,20 @@ class SimpleLinkedListTest {
                 () -> assertTrue(list.contains("로지")),
                 () -> assertTrue(list.contains("준팍")),
                 () -> assertTrue(success)
+        );
+    }
+
+    @Test
+    void removeByIndex() {
+        final SimpleLinkedList list = new SimpleLinkedList("홍실", "로지", "준팍");
+        final String removedValue = list.remove(1);
+
+        Assertions.assertAll(
+                () -> assertThat(list.size()).isEqualTo(2),
+                () -> assertFalse(list.contains("로지")),
+                () -> assertTrue(list.contains("홍실")),
+                () -> assertTrue(list.contains("준팍")),
+                () -> assertEquals("로지", removedValue)
         );
     }
 

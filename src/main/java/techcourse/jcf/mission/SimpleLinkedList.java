@@ -117,7 +117,23 @@ public class SimpleLinkedList implements SimpleList {
 
     @Override
     public String remove(final int index) {
-        return null;
+        if (index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+        if (index == 0) {
+            String removedValue = startNode.value;
+            startNode = startNode.next;
+            size--;
+            return removedValue;
+        }
+        Node node = startNode;
+        for (int i = 0; i < index - 1; i++) {
+            node = node.next;
+        }
+        String removedValue = node.next.value;
+        node.next = node.next.next;
+        size--;
+        return removedValue;
     }
 
     @Override
