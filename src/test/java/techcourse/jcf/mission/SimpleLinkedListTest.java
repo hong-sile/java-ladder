@@ -96,6 +96,17 @@ class SimpleLinkedListTest {
 
     @Test
     void remove() {
+        final SimpleLinkedList list = new SimpleLinkedList("홍실", "로지", "준팍");
+
+        final boolean success = list.remove("홍실");
+
+        Assertions.assertAll(
+                () -> assertThat(list.size()).isEqualTo(2),
+                () -> assertFalse(list.contains("홍실")),
+                () -> assertTrue(list.contains("로지")),
+                () -> assertTrue(list.contains("준팍")),
+                () -> assertTrue(success)
+        );
     }
 
     @Test

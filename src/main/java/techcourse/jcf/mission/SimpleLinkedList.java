@@ -1,5 +1,7 @@
 package techcourse.jcf.mission;
 
+import java.util.Objects;
+
 public class SimpleLinkedList implements SimpleList {
 
     public static final int NOT_CONTAIN_OBJECT_INDEX = -1;
@@ -17,6 +19,7 @@ public class SimpleLinkedList implements SimpleList {
 
     @Override
     public boolean add(final String value) {
+        Objects.requireNonNull(value);
         final Node newNode = new Node(value, null);
         size += 1;
         if (startNode == null) {
@@ -30,6 +33,7 @@ public class SimpleLinkedList implements SimpleList {
 
     @Override
     public void add(final int index, final String value) {
+        Objects.requireNonNull(value);
         Node curNode = startNode;
         if (index == 0) {
             startNode = new Node(value, curNode);
@@ -46,6 +50,7 @@ public class SimpleLinkedList implements SimpleList {
 
     @Override
     public String set(final int index, final String value) {
+        Objects.requireNonNull(value);
         if (index >= size) {
             throw new IndexOutOfBoundsException();
         }
@@ -95,6 +100,18 @@ public class SimpleLinkedList implements SimpleList {
 
     @Override
     public boolean remove(final String value) {
+        if (startNode.value.equals(value)) {
+            startNode = startNode.next;
+            size--;
+            return true;
+        }
+        for (Node node = startNode; node.next != null; node = node.next) {
+            if (node.next.value.equals(value)) {
+                size--;
+                node.next = node.next.next;
+                return true;
+            }
+        }
         return false;
     }
 
